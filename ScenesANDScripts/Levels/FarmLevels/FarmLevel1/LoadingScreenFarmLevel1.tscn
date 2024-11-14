@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ohkhjn4pbkeq"]
+
+[ext_resource type="PackedScene" uid="uid://cmrdbrf0c07bj" path="res://ScenesANDScripts/Levels/Level1/Parts/BasePart/BaseLoadingScreen.tscn" id="1_owbf7"]
+
+[node name="LoadingScreenFarmLevel1" instance=ExtResource("1_owbf7")]
+pathLevel = "res://ScenesANDScripts/Levels/FarmLevels/FarmLevel1/FarmLevel1.tscn"
+numberLevel = 1
+numberPart = 5
+
+[node name="NamePart" parent="Margins" index="0"]
+text = "Фарм 1"

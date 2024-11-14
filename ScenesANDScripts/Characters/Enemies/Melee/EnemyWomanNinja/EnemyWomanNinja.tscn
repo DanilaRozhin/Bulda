@@ -1,0 +1,209 @@
+[gd_scene load_steps=18 format=3 uid="uid://b7bnbb4d3h33f"]
+
+[ext_resource type="PackedScene" uid="uid://chpsvqr6bmnyb" path="res://ScenesANDScripts/Characters/Enemies/BaseEnemy/BaseEnemy.tscn" id="1_mk0mo"]
+[ext_resource type="Texture2D" uid="uid://de1uderelcdje" path="res://AllTextures/Characters/Enemies/WomanNinja.png" id="2_2qwls"]
+[ext_resource type="AudioStream" uid="uid://uo6uftlsyo3m" path="res://MusicANDSounds/Sounds/Enemy/HurtWomanDaggers.mp3" id="3_heong"]
+[ext_resource type="AudioStream" uid="uid://bky2wvvev6tr2" path="res://MusicANDSounds/Sounds/Enemy/HitEnemy.mp3" id="4_hwq6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqjxo"]
+size = Vector2(77, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa6s4"]
+size = Vector2(200, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcke3"]
+size = Vector2(42, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai85n"]
+size = Vector2(42, 79)
+
+[sub_resource type="Animation" id="Animation_i7iht"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_d0vbq"]
+resource_name = "attack"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreaAttack:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.58, 0.64),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_i55tf"]
+resource_name = "die"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+}
+
+[sub_resource type="Animation" id="Animation_i3q8r"]
+resource_name = "hurt"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="Animation" id="Animation_rnlv8"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_krh0l"]
+resource_name = "jump"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_1gyo6"]
+resource_name = "run"
+length = 0.75
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+}
+
+[sub_resource type="Animation" id="Animation_41age"]
+resource_name = "walk"
+length = 0.75
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcnhl"]
+_data = {
+"RESET": SubResource("Animation_i7iht"),
+"attack": SubResource("Animation_d0vbq"),
+"die": SubResource("Animation_i55tf"),
+"hurt": SubResource("Animation_i3q8r"),
+"idle": SubResource("Animation_rnlv8"),
+"jump": SubResource("Animation_krh0l"),
+"run": SubResource("Animation_1gyo6"),
+"walk": SubResource("Animation_41age")
+}
+
+[node name="EnemyWomanNinja" instance=ExtResource("1_mk0mo")]
+hp = 50
+baseDamage = 20
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(-20.5, 8.5)
+shape = SubResource("RectangleShape2D_jqjxo")
+
+[node name="CollisionVisibility" parent="AreaVisibility" index="0"]
+position = Vector2(100, -16.5)
+shape = SubResource("RectangleShape2D_fa6s4")
+
+[node name="CollisionRangeAttack" parent="AreaRangeAttack" index="0"]
+position = Vector2(17, 6.5)
+shape = SubResource("RectangleShape2D_tcke3")
+
+[node name="CollisionAttack" parent="AreaAttack" index="0"]
+position = Vector2(17, 6.5)
+shape = SubResource("RectangleShape2D_ai85n")
+
+[node name="Sprite" parent="." index="5"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("2_2qwls")
+hframes = 10
+vframes = 7
+frame = 40
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_xcnhl")
+}
+
+[node name="Hurt" parent="." index="8"]
+stream = ExtResource("3_heong")
+
+[node name="Hit" parent="." index="9"]
+stream = ExtResource("4_hwq6p")
+
+[node name="VisibleOnScreenEnabler" parent="." index="10"]
+position = Vector2(-19.5, 5.50001)
+scale = Vector2(5.45, 7.15)

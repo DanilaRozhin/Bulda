@@ -1,0 +1,387 @@
+[gd_scene load_steps=14 format=3 uid="uid://byosarekdb1uw"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ButtonsControl/ButtonsControl.gd" id="1_kq18q"]
+[ext_resource type="Texture2D" uid="uid://bs8b4j0gsqpig" path="res://AllTextures/Information/MoveLeft.png" id="2_y6udk"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="3_3pyyp"]
+[ext_resource type="Texture2D" uid="uid://dgmopi1r8e2bp" path="res://AllTextures/Information/Menu.png" id="4_1nje8"]
+[ext_resource type="Texture2D" uid="uid://ci4loiy45lcvd" path="res://AllTextures/Information/MoveRight.png" id="5_87a7r"]
+[ext_resource type="Texture2D" uid="uid://c1swm6236nnv" path="res://AllTextures/Information/ReturnMenu.png" id="6_3fkqs"]
+[ext_resource type="Texture2D" uid="uid://btacc2isnk5" path="res://AllTextures/Information/Jump.png" id="7_rlto1"]
+[ext_resource type="Texture2D" uid="uid://beq3ogdiy1fxh" path="res://AllTextures/Information/ReloadScene.png" id="8_vtlpf"]
+[ext_resource type="Texture2D" uid="uid://1hugeukx114y" path="res://AllTextures/Information/Attack.png" id="9_0o8j0"]
+[ext_resource type="Texture2D" uid="uid://cn6pcdbei6cay" path="res://AllTextures/Information/Settings.png" id="10_vp0bq"]
+[ext_resource type="Texture2D" uid="uid://lypw0g81atx1" path="res://AllTextures/Information/SkillTree.png" id="12_slcxk"]
+[ext_resource type="Texture2D" uid="uid://cavrse7d5a08a" path="res://AllTextures/Information/Trade.png" id="14_bk6ey"]
+[ext_resource type="Texture2D" uid="uid://bsnh5172t07um" path="res://AllTextures/Information/Action.png" id="15_6cyad"]
+
+[node name="ButtonsControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kq18q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonsControl" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginsUpperPanel" type="MarginContainer" parent="CanvasLayer/ButtonsControl"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="UpperPanel" type="VBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsUpperPanel"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="CanvasLayer/ButtonsControl/MarginsUpperPanel/UpperPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 60
+text = "X"
+flat = true
+
+[node name="Headers" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsUpperPanel/UpperPanel"]
+layout_mode = 2
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="Player" type="Label" parent="CanvasLayer/ButtonsControl/MarginsUpperPanel/UpperPanel/Headers"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 50
+text = "Персонаж"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Label" parent="CanvasLayer/ButtonsControl/MarginsUpperPanel/UpperPanel/Headers"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 50
+text = "Меню"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginsListButtonsControl" type="MarginContainer" parent="CanvasLayer/ButtonsControl"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollListButtonsControl" type="ScrollContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl"]
+layout_mode = 2
+
+[node name="ListButtonsControl" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 250
+alignment = 1
+
+[node name="Chapter" type="VBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="MoveLeft" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/MoveLeft"]
+layout_mode = 2
+texture = ExtResource("2_y6udk")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/MoveLeft"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/MoveLeft"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Движение влево"
+
+[node name="MoveRight" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/MoveRight"]
+layout_mode = 2
+texture = ExtResource("5_87a7r")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/MoveRight"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/MoveRight"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Движение вправо"
+
+[node name="Jump" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Jump"]
+layout_mode = 2
+texture = ExtResource("7_rlto1")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Jump"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Jump"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Прыжок"
+
+[node name="Attack" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Attack"]
+layout_mode = 2
+texture = ExtResource("9_0o8j0")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Attack"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Attack"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Атака"
+
+[node name="Action" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Action"]
+layout_mode = 2
+texture = ExtResource("15_6cyad")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Action"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Chapter/Action"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Действие"
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ShowHideMenu" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ShowHideMenu"]
+layout_mode = 2
+texture = ExtResource("4_1nje8")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ShowHideMenu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ShowHideMenu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Показать/скрыть"
+
+[node name="ReturnMainMenu" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ReturnMainMenu"]
+layout_mode = 2
+texture = ExtResource("6_3fkqs")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ReturnMainMenu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ReturnMainMenu"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Возврат в гл. меню"
+
+[node name="ReloadLevel" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ReloadLevel"]
+layout_mode = 2
+texture = ExtResource("8_vtlpf")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ReloadLevel"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/ReloadLevel"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Перезапуск уровня"
+
+[node name="Settings" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/Settings"]
+layout_mode = 2
+texture = ExtResource("10_vp0bq")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/Settings"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/Settings"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Меню настроек"
+
+[node name="SkillTree" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/SkillTree"]
+layout_mode = 2
+texture = ExtResource("12_slcxk")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/SkillTree"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/SkillTree"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Дерево умений"
+
+[node name="Trade" type="HBoxContainer" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/Trade"]
+layout_mode = 2
+texture = ExtResource("14_bk6ey")
+expand_mode = 2
+
+[node name="----->" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/Trade"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "----->"
+
+[node name="Description" type="Label" parent="CanvasLayer/ButtonsControl/MarginsListButtonsControl/ScrollListButtonsControl/ListButtonsControl/Menu/Trade"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_3pyyp")
+theme_override_font_sizes/font_size = 40
+text = "Обмен"
+
+[connection signal="pressed" from="CanvasLayer/ButtonsControl/MarginsUpperPanel/UpperPanel/Close" to="." method="_on_close_pressed"]

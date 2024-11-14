@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://caf6a1mdhe444"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForPlayer/DeathScreen/DeathScreen.gd" id="1_n6fsj"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="1_sjuwb"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n6fsj")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Buttons" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Header" type="Label" parent="Margins/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.705882, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_sjuwb")
+theme_override_font_sizes/font_size = 80
+text = "Вы умерли"
+
+[node name="Restart" type="Button" parent="Margins/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_sjuwb")
+theme_override_font_sizes/font_size = 70
+text = "Перезапустить уровень"
+flat = true
+
+[node name="BackMenu" type="Button" parent="Margins/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_sjuwb")
+theme_override_font_sizes/font_size = 70
+text = "Вернуться в главное меню
+"
+flat = true
+
+[connection signal="pressed" from="Margins/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Margins/Buttons/BackMenu" to="." method="_on_back_menu_pressed"]

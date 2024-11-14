@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://tm4rh241h7ua"]
+
+[ext_resource type="Texture2D" uid="uid://dsswnu38pchou" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin007.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cnocljqab0end" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin009.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cq0vxlrt6msw0" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin002.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cindji537abfh" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin004.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bvhcik4n8vdg1" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin010.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b8l8vdxgks8c5" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin005.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://biothmmyw38dh" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin011.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dpgrvn6kagtin" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin006.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://biu23njebjklr" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin003.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://bm82wg1y8ewt8" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin008.png" id="10"]
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Items/Coins/Silver/SilverCoin.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://bwwld7005wkui" path="res://AllTextures/ForLevels/Items/Coins/Silver/SilverCoin001.png" id="12"]
+[ext_resource type="AudioStream" uid="uid://eb0028jxija1" path="res://MusicANDSounds/Sounds/Objects/SilverCoin.mp3" id="13_a40ny"]
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"SilverCoin",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="3"]
+radius = 20.025
+
+[node name="SilverCoin" type="Node2D"]
+position = Vector2(93, 59)
+script = ExtResource("11")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("2")
+animation = &"SilverCoin"
+
+[node name="AreaPickUP" type="Area2D" parent="."]
+
+[node name="CollisionPickUP" type="CollisionShape2D" parent="AreaPickUP"]
+position = Vector2(-1, 0)
+shape = SubResource("3")
+
+[node name="PickUP" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_a40ny")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-0.999999, 9.53674e-07)
+scale = Vector2(2, 2)
+
+[connection signal="body_entered" from="AreaPickUP" to="." method="_on_area_pick_up_body_entered"]
+[connection signal="finished" from="PickUP" to="." method="_on_pick_up_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

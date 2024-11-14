@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7i1l6ethousq"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Houses/House.gd" id="1_ai38s"]
+[ext_resource type="Texture2D" uid="uid://di028thmn01ta" path="res://AllTextures/Tilesets/Village/Houses/HouseKnight.png" id="1_hrk73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5boh"]
+size = Vector2(350, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eya3n"]
+size = Vector2(418, 10.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyaqw"]
+size = Vector2(78, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34a6p"]
+size = Vector2(94, 118)
+
+[node name="HouseKnight" type="StaticBody2D"]
+script = ExtResource("1_ai38s")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_hrk73")
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+position = Vector2(228, -40.5)
+shape = SubResource("RectangleShape2D_j5boh")
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+position = Vector2(-136, -260.75)
+shape = SubResource("RectangleShape2D_eya3n")
+
+[node name="Collision3" type="CollisionShape2D" parent="."]
+position = Vector2(92, -123)
+shape = SubResource("RectangleShape2D_lyaqw")
+
+[node name="Collision4" type="CollisionShape2D" parent="."]
+position = Vector2(-363, -123)
+shape = SubResource("RectangleShape2D_lyaqw")
+
+[node name="Collision5" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-311, 79, -136, 8, 40, 78, 35, 88, -136, 19, -306, 87)
+
+[node name="AreaKnockDoor" type="Area2D" parent="."]
+
+[node name="CollisionKnockDoor" type="CollisionShape2D" parent="AreaKnockDoor"]
+position = Vector2(-134, 190)
+shape = SubResource("RectangleShape2D_34a6p")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0.5, 1.52588e-05)
+scale = Vector2(41.25, 27.5)
+
+[connection signal="body_entered" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_entered"]
+[connection signal="body_exited" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

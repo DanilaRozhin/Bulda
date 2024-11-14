@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccbmoly2k4yct"]
+
+[ext_resource type="Texture2D" uid="uid://vqevwgsajntp" path="res://AllTextures/Tilesets/Village/Houses/HouseOwner.png" id="1_0wexb"]
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Houses/House.gd" id="1_jeq83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sf40"]
+size = Vector2(91.375, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcdmg"]
+size = Vector2(52.5, 106)
+
+[node name="HouseOwner" type="StaticBody2D"]
+script = ExtResource("1_jeq83")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_0wexb")
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+position = Vector2(161.313, -33)
+shape = SubResource("RectangleShape2D_5sf40")
+
+[node name="Collision2" type="CollisionPolygon2D" parent="."]
+position = Vector2(82, -126)
+polygon = PackedVector2Array(-311, 79, -136, 8, 40, 78, 35, 88, -115.66, 27.2073, -136, 19, -306, 87)
+
+[node name="AreaKnockDoor" type="Area2D" parent="."]
+
+[node name="CollisionKnockDoor" type="CollisionShape2D" parent="AreaKnockDoor"]
+position = Vector2(-139.25, 40)
+shape = SubResource("RectangleShape2D_kcdmg")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-7.62939e-06, -2.5)
+scale = Vector2(23.4, 12.05)
+
+[connection signal="body_entered" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_entered"]
+[connection signal="body_exited" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

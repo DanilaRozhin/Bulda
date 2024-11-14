@@ -1,0 +1,2641 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw4amc4nbg0jt"]
+
+[ext_resource type="Texture2D" uid="uid://bcwhql20v774l" path="res://AllTextures/Tilesets/Backgrounds/Menu/Full.png" id="2_tw4lv"]
+[ext_resource type="Texture2D" uid="uid://cpsw2cqxqpjur" path="res://AllTextures/ForPlayer/SkillTree/GreenPoint.png" id="3_egsdj"]
+[ext_resource type="Texture2D" uid="uid://ocr8ds4mls8l" path="res://AllTextures/ForPlayer/SkillTree/GreenSkill.png" id="4_2wc0u"]
+[ext_resource type="Texture2D" uid="uid://cp1th6b847ahp" path="res://AllTextures/ForPlayer/SkillTree/BluePoint.png" id="5_6tm1t"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="5_j781a"]
+[ext_resource type="Script" path="res://ScenesANDScripts/ForPlayer/SkillTree/SkillTree.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://durgl5nq1rj37" path="res://AllTextures/ForPlayer/SkillTree/Accept.png" id="11_hgejh"]
+[ext_resource type="AudioStream" uid="uid://bndbktnpcdbnv" path="res://MusicANDSounds/Sounds/Others/AcceptSkillTree.mp3" id="12_68k0o"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tw4lv")
+expand_mode = 3
+
+[node name="Interface" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="UpperPanel" type="MarginContainer" parent="CanvasLayer/Interface"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+
+[node name="Points" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GreenPoints" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel/Points"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/UpperPanel/Points/GreenPoints"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/UpperPanel/Points/GreenPoints"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="BluePoints" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel/Points"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/UpperPanel/Points/BluePoints"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/UpperPanel/Points/BluePoints"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="Information" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="CloseSkillTree" type="Button" parent="CanvasLayer/Interface/UpperPanel/Information"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+
+[node name="Information" type="Label" parent="CanvasLayer/Interface/UpperPanel/Information"]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "У вас недостаточно зелёных очков"
+vertical_alignment = 1
+
+[node name="MarginsSkills" type="MarginContainer" parent="CanvasLayer/Interface"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="ScrollSkills" type="ScrollContainer" parent="CanvasLayer/Interface/MarginsSkills"]
+layout_mode = 2
+
+[node name="Skills" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Defense" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 50
+text = "Защита"
+
+[node name="ResetDefenseSkills" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 0.223529, 0.211765, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.223529, 0.211765, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Сбросить ветку"
+flat = true
+
+[node name="DefenseSkills" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Durability" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Стойкость"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurabilitySkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Experienced" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+icon_alignment = 1
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Бывалый"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Бесконечные сражения закаляют вас, снижая входящий урон на 2"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="IDontFeelPain" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+icon_alignment = 1
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Я не чувствую боли"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Невероятная выносливость позволяет игнорировать урон в течении 2 сек. с шансом 5%"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "2"
+
+[node name="Evasion" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Уклонение"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EvasionSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="SlipperyMan" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Скользкий тип"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Ловкими движениями вы уходите от ударов противника с шансом 5%"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="Matrix" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Матрица"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "При уклонении в бою, вы повышаете шанс уклонения ещё на 5% на 5 сек."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Blocking" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Блокирование"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlockingSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TeachingDefense" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Учение о защите"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Вы раскрываете потенциал вашей защиты, блокируя входящий урон с шансом 10%"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="Counterattack" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Контратака"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "После успешного блокирования ваш урон увеличивается на 5 в течении 5 сек."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Health" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Здоровье"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="WhatDoesNotKill" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Что не убивает, то..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Ваше максимальное здоровье увеличивается на 10"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="LabelPrice" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/LabelPrice"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/LabelPrice" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/LabelPrice"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/LabelPrice" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/LabelPrice"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="SecondChance" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills" groups=["buttonsDefenseSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Второй шанс"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description" groups=["descriptionsDefenseSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Один раз за уровень не позволяет смерти забрать вас, даруя 50% от максимального здоровья."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelDefenseSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "2"
+
+[node name="Attack" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 50
+text = "Атака"
+
+[node name="ResetAttackSkills" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 0.223529, 0.211765, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.223529, 0.211765, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Сбросить ветку"
+flat = true
+
+[node name="AttackSkills" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Damage" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Урон"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CombatSkill" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Навык боя"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Вы постигаете исскуство битвы и ваш урон увеличивается на X"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="CrushingStrike" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Сокрушительный удар"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Ваш удар пробивает защиту противника с шансом X%, увеличивая урон на X на X сек."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="MovementSpeed" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Скорость передвижения"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MovementSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Easily100Meters" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "100 метров? Легко"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Скорость вашего передвижения увеличена на X%"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="FasterThanArrow" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Быстрее стрелы"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "При уклонении, ваша скорость передвижение возрастает на X% на X сек."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Crits" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Криты"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CritsSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CriticalStrikes" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Критические удары"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Вау! Крит! Ваш урон увеличивается на X с шансом X%"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="CriticalMultiplier" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Множитель крита"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Урон? Вот урон! Сила вашего критического удара увеличивается на X"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Lifesteal" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 30
+text = "Вампиризм"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifestealSkills" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ChanceLifesteal" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Шанс вампиризма"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Ваши атаки с шансом X% восстанавливают X здоровья"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "5"
+
+[node name="PowerLifesteal" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills" groups=["buttonsAttackSkills"]]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description"]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Сила вампиризма"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description" groups=["descriptionsAttackSkills"]]
+custom_minimum_size = Vector2(330, 30)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Ваш вампиризм от атак увеличивается на X"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceAndLevelling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Price" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LabelPrice" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "Стоимость: "
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Price" groups=["priceGreenPointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconGreenPoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("3_egsdj")
+expand_mode = 2
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Price" groups=["priceBluePointsAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="IconBluePoint" type="TextureRect" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Price"]
+layout_mode = 2
+texture = ExtResource("5_6tm1t")
+expand_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsCurrentLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal/Margins/Description/PriceAndLevelling/Leveling" groups=["labelsMaxLevelAttackSkills"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Alchemy" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 75
+text = "Алхимия"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Potions" type="GridContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy"]
+layout_mode = 2
+columns = 2
+
+[node name="PotionRegeneration" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 40
+text = "Зелье регенерации"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectAndDuration" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration"]
+layout_mode = 2
+
+[node name="IncreaseEffectPotionRegeneration" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Усиление эффекта"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Усиление эффекта зелья регенерации на 5%"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseEffectPotionRegeneration/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="IncreaseDurationPotionRegeneration" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Увеличение длительности"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Увелечение длительности зелья регенерации на 3 секунды"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionRegeneration/EffectAndDuration/IncreaseDurationPotionRegeneration/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="PotionWH" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 40
+text = "Зелье орлиного глаза"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectAndDuration" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH"]
+layout_mode = 2
+
+[node name="IncreaseEffectPotionWH" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Усиление эффекта"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Усиление эффекта зелья орлиного глаза: теперь вы видите серебряные монеты"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseEffectPotionWH/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="IncreaseDurationPotionWH" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Увеличение длительности"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Увеличение длительности зелья орлиного глаза на 3 секунды"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionWH/EffectAndDuration/IncreaseDurationPotionWH/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="PotionDamage" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 40
+text = "Зелье урона"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectAndDuration" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage"]
+layout_mode = 2
+
+[node name="IncreaseEffectPotionDamage" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Усиление эффекта"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Усиление эффекта зелья урона на 5%"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseEffectPotionDamage/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="IncreaseDurationPotionDamage" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Увеличение длительности"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Увеличение длительности зелья урона на 5 секунд"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionDamage/EffectAndDuration/IncreaseDurationPotionDamage/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="PotionInvisibility" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 40
+text = "Зелье невидимости"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectAndDuration" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility"]
+layout_mode = 2
+
+[node name="IncreaseEffectPotionInvisibility" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Усиление эффекта"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Усиление эффекта зелья невидимости: теперь вы проходите сквозь врагов"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseEffectPotionInvisibility/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="IncreaseDurationPotionInvisibility" type="Button" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration"]
+layout_mode = 2
+focus_mode = 0
+keep_pressed_outside = true
+icon = ExtResource("4_2wc0u")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Description" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 35
+text = "Увеличение длительности"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer/Description"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "Увеличение длительности зелья невидимости на 5 секунд"
+autowrap_mode = 2
+
+[node name="Leveling" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer/Description"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="Of" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "/"
+
+[node name="Max" type="Label" parent="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Alchemy/Potions/PotionInvisibility/EffectAndDuration/IncreaseDurationPotionInvisibility/MarginContainer/Description/Leveling"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_j781a")
+theme_override_font_sizes/font_size = 25
+text = "5"
+
+[node name="BottomPanel" type="MarginContainer" parent="CanvasLayer/Interface"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="Accept" type="Button" parent="CanvasLayer/Interface/BottomPanel"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+icon = ExtResource("11_hgejh")
+flat = true
+alignment = 2
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_68k0o")
+
+[connection signal="pressed" from="CanvasLayer/Interface/UpperPanel/Information/CloseSkillTree" to="." method="_on_close_skill_tree_pressed"]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/ResetDefenseSkills" to="." method="_on_reset_skills_pressed" binds= ["defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/Experienced" to="." method="_on_skill_pressed" binds= ["experienced", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Durability/DurabilitySkills/IDontFeelPain" to="." method="_on_skill_pressed" binds= ["iDontFeelPain", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/SlipperyMan" to="." method="_on_skill_pressed" binds= ["slipperyMan", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Evasion/EvasionSkills/Matrix" to="." method="_on_skill_pressed" binds= ["matrix", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/TeachingDefense" to="." method="_on_skill_pressed" binds= ["teachingDefense", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Blocking/BlockingSkills/Counterattack" to="." method="_on_skill_pressed" binds= ["counterattack", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/WhatDoesNotKill" to="." method="_on_skill_pressed" binds= ["whatDoesNotKill", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Defense/DefenseSkills/Health/HealthSkills/SecondChance" to="." method="_on_skill_pressed" binds= ["secondChance", "defense"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/ResetAttackSkills" to="." method="_on_reset_skills_pressed" binds= ["attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CombatSkill" to="." method="_on_skill_pressed" binds= ["combatSkill", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Damage/DamageSkills/CrushingStrike" to="." method="_on_skill_pressed" binds= ["crushingStrike", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/Easily100Meters" to="." method="_on_skill_pressed" binds= ["easily100Meters", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/MovementSpeed/MovementSkills/FasterThanArrow" to="." method="_on_skill_pressed" binds= ["fasterThanArrow", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalStrikes" to="." method="_on_skill_pressed" binds= ["criticalStrikes", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Crits/CritsSkills/CriticalMultiplier" to="." method="_on_skill_pressed" binds= ["criticalMultiplier", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/ChanceLifesteal" to="." method="_on_skill_pressed" binds= ["chanceLifesteal", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsSkills/ScrollSkills/Skills/Attack/AttackSkills/Lifesteal/LifestealSkills/PowerLifesteal" to="." method="_on_skill_pressed" binds= ["powerLifesteal", "attack"]]
+[connection signal="pressed" from="CanvasLayer/Interface/BottomPanel/Accept" to="." method="_on_accept_pressed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwhclk10dr0po"]
+
+[ext_resource type="PackedScene" uid="uid://cmrdbrf0c07bj" path="res://ScenesANDScripts/Levels/Level1/Parts/BasePart/BaseLoadingScreen.tscn" id="1_76hcg"]
+
+[node name="LoadingScreenPart2" instance=ExtResource("1_76hcg")]
+pathLevel = "res://ScenesANDScripts/Levels/Level1/Parts/Part2/Part2.tscn"
+numberLevel = 1
+numberPart = 2
+
+[node name="NamePart" parent="Margins" index="0"]
+text = "Лес"

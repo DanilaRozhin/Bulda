@@ -1,0 +1,166 @@
+[gd_scene load_steps=19 format=3 uid="uid://bwwt4toaxfut"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForPlayer/Interface/Interface.gd" id="1_afa2e"]
+[ext_resource type="Texture2D" uid="uid://dvhlvfmnok0nf" path="res://AllTextures/ForPlayer/Interface/MoveLeft.png" id="2_gfrxg"]
+[ext_resource type="Texture2D" uid="uid://ds5jwcwsjx1a4" path="res://AllTextures/ForPlayer/Interface/Information.png" id="2_pqp5k"]
+[ext_resource type="Texture2D" uid="uid://c5n60n2cbvbx6" path="res://AllTextures/ForPlayer/Interface/MoveRight.png" id="3_ml85e"]
+[ext_resource type="Texture2D" uid="uid://clquba0dubrru" path="res://AllTextures/ForPlayer/Interface/Attack.png" id="4_x8wgm"]
+[ext_resource type="Texture2D" uid="uid://ghsa1xhshhvb" path="res://AllTextures/ForPlayer/Interface/Jump.png" id="5_guku0"]
+[ext_resource type="Texture2D" uid="uid://cb7tp4xm1o1i5" path="res://AllTextures/ForPlayer/Interface/Settings.png" id="6_0kp88"]
+[ext_resource type="Texture2D" uid="uid://ccv5h6pppvqr" path="res://AllTextures/ForPlayer/Interface/Trade.png" id="7_riisk"]
+[ext_resource type="Texture2D" uid="uid://ckpvhfcqsjg3u" path="res://AllTextures/ForPlayer/Interface/SkillTree.png" id="8_dqadt"]
+[ext_resource type="Texture2D" uid="uid://crck7pild5atb" path="res://AllTextures/ForPlayer/Interface/ReloadScene.png" id="9_8qi73"]
+[ext_resource type="Texture2D" uid="uid://r3jqh62wnrkl" path="res://AllTextures/ForPlayer/Interface/ReturnMenu.png" id="10_4ftq5"]
+[ext_resource type="Texture2D" uid="uid://ddiipdofifcdv" path="res://AllTextures/ForPlayer/Interface/MoveLeftPressed.png" id="10_nd3kl"]
+[ext_resource type="Texture2D" uid="uid://dcsmqnsq2ecq6" path="res://AllTextures/ForPlayer/Interface/Action.png" id="10_y7ejj"]
+[ext_resource type="Texture2D" uid="uid://felw7bo1uig6" path="res://AllTextures/ForPlayer/Interface/MoveRightPressed.png" id="11_j531q"]
+[ext_resource type="Texture2D" uid="uid://swcnjl2qiehg" path="res://AllTextures/ForPlayer/Interface/Menu.png" id="11_wwqg3"]
+[ext_resource type="Texture2D" uid="uid://bw2dnm3l7wx4x" path="res://AllTextures/ForPlayer/Interface/ActionPressed.png" id="14_6r7j8"]
+[ext_resource type="Texture2D" uid="uid://bb6dc27v8yrqg" path="res://AllTextures/ForPlayer/Interface/JumpPressed.png" id="16_ud8gv"]
+[ext_resource type="Texture2D" uid="uid://kievypsbv01q" path="res://AllTextures/ForPlayer/Interface/AttackPressed.png" id="18_wowdk"]
+
+[node name="Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_afa2e")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginsMenuButtons" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 70
+
+[node name="MenuButtons" type="HBoxContainer" parent="CanvasLayer/MarginsMenuButtons"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Information" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("2_pqp5k")
+flat = true
+icon_alignment = 1
+
+[node name="Settings" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("6_0kp88")
+flat = true
+icon_alignment = 1
+
+[node name="Trade" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("7_riisk")
+flat = true
+icon_alignment = 1
+
+[node name="SkillTree" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("8_dqadt")
+flat = true
+icon_alignment = 1
+
+[node name="ReloadScene" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("9_8qi73")
+flat = true
+icon_alignment = 1
+
+[node name="ReturnMenu" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("10_4ftq5")
+flat = true
+icon_alignment = 1
+
+[node name="Menu" type="Button" parent="CanvasLayer/MarginsMenuButtons/MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+icon = ExtResource("11_wwqg3")
+flat = true
+icon_alignment = 1
+
+[node name="MoveButtons" type="Node2D" parent="CanvasLayer"]
+
+[node name="MoveLeft" type="TouchScreenButton" parent="CanvasLayer/MoveButtons"]
+position = Vector2(150, 900)
+texture_normal = ExtResource("2_gfrxg")
+texture_pressed = ExtResource("10_nd3kl")
+passby_press = true
+
+[node name="MoveRight" type="TouchScreenButton" parent="CanvasLayer/MoveButtons"]
+position = Vector2(400, 900)
+texture_normal = ExtResource("3_ml85e")
+texture_pressed = ExtResource("11_j531q")
+passby_press = true
+
+[node name="Action" type="TouchScreenButton" parent="CanvasLayer/MoveButtons"]
+visible = false
+position = Vector2(1250, 900)
+texture_normal = ExtResource("10_y7ejj")
+texture_pressed = ExtResource("14_6r7j8")
+passby_press = true
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/MoveButtons"]
+position = Vector2(1400, 900)
+texture_normal = ExtResource("5_guku0")
+texture_pressed = ExtResource("16_ud8gv")
+passby_press = true
+
+[node name="Attack" type="TouchScreenButton" parent="CanvasLayer/MoveButtons"]
+position = Vector2(1600, 900)
+texture_normal = ExtResource("4_x8wgm")
+texture_pressed = ExtResource("18_wowdk")
+passby_press = true
+
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/Information" to="." method="_on_information_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/Trade" to="." method="_on_trade_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/SkillTree" to="." method="_on_skill_tree_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/ReloadScene" to="." method="_on_reload_scene_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/ReturnMenu" to="." method="_on_return_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginsMenuButtons/MenuButtons/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/MoveButtons/MoveLeft" to="." method="_on_move_left_pressed"]
+[connection signal="released" from="CanvasLayer/MoveButtons/MoveLeft" to="." method="_on_move_left_released"]
+[connection signal="pressed" from="CanvasLayer/MoveButtons/MoveRight" to="." method="_on_move_right_pressed"]
+[connection signal="released" from="CanvasLayer/MoveButtons/MoveRight" to="." method="_on_move_right_released"]
+[connection signal="pressed" from="CanvasLayer/MoveButtons/Action" to="." method="_on_action_pressed"]
+[connection signal="released" from="CanvasLayer/MoveButtons/Action" to="." method="_on_action_released"]
+[connection signal="pressed" from="CanvasLayer/MoveButtons/Jump" to="." method="_on_jump_pressed"]
+[connection signal="released" from="CanvasLayer/MoveButtons/Jump" to="." method="_on_jump_released"]
+[connection signal="pressed" from="CanvasLayer/MoveButtons/Attack" to="." method="_on_attack_pressed"]
+[connection signal="released" from="CanvasLayer/MoveButtons/Attack" to="." method="_on_attack_released"]

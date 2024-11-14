@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3my3y0m5kjmh"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Houses/HouseAlcoholic.gd" id="1_h1n4i"]
+[ext_resource type="Texture2D" uid="uid://dt54tchvmfmwb" path="res://AllTextures/Tilesets/Village/Houses/HouseAlcoholic.png" id="1_ja42t"]
+[ext_resource type="Texture2D" uid="uid://bws6n8l5hhq7p" path="res://AllTextures/Tilesets/Village/Houses/Alcoholic.png" id="3_kp7lh"]
+[ext_resource type="AudioStream" uid="uid://cu1ftf4mls1ng" path="res://MusicANDSounds/Sounds/Others/HouseAlcoholic.mp3" id="4_cmmwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xvwb"]
+size = Vector2(275.5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h307o"]
+size = Vector2(86, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3j76"]
+size = Vector2(51, 107)
+
+[node name="HouseAlcoholic" type="StaticBody2D"]
+script = ExtResource("1_h1n4i")
+
+[node name="SpriteHouse" type="Sprite2D" parent="."]
+texture = ExtResource("1_ja42t")
+
+[node name="SpriteAlcoholic" type="Sprite2D" parent="."]
+position = Vector2(5, 23)
+texture = ExtResource("3_kp7lh")
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+position = Vector2(-165.75, -118)
+shape = SubResource("RectangleShape2D_5xvwb")
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+position = Vector2(214, -42)
+shape = SubResource("RectangleShape2D_h307o")
+
+[node name="Collision3" type="CollisionPolygon2D" parent="."]
+position = Vector2(134, -131)
+polygon = PackedVector2Array(-311, 79, -136, 8, 40, 78, 35, 88, -115.66, 27.2073, -136, 19, -306, 87)
+
+[node name="AreaKnockDoor" type="Area2D" parent="."]
+
+[node name="CollisionKnockDoor" type="CollisionShape2D" parent="AreaKnockDoor"]
+position = Vector2(-226.5, 51.5)
+shape = SubResource("RectangleShape2D_y3j76")
+
+[node name="SpeechAlcoholic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cmmwb")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(22.5, 1.28746e-05)
+scale = Vector2(34.05, 13.5)
+
+[connection signal="body_entered" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_entered"]
+[connection signal="body_exited" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_exited"]
+[connection signal="finished" from="SpeechAlcoholic" to="." method="_on_speech_alcoholic_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

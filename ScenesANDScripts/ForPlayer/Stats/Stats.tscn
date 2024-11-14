@@ -1,0 +1,224 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgtnwwar4a0vg"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForPlayer/Stats/Stats.gd" id="1_3jqfw"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="2_5v1je"]
+[ext_resource type="Texture2D" uid="uid://botvs6lxfvaxb" path="res://AllTextures/ForPlayer/Stats/Coins/SilverCoin(60x60).png" id="2_g5pj5"]
+[ext_resource type="Texture2D" uid="uid://c3rdc8hx4cme5" path="res://AllTextures/ForPlayer/Stats/Coins/GoldCoin(60x60).png" id="4_ed68f"]
+[ext_resource type="Texture2D" uid="uid://df6f4ms0onrgy" path="res://AllTextures/ForPlayer/Stats/Key_01.png" id="6_aaiux"]
+[ext_resource type="Texture2D" uid="uid://28sr5uf8a7qy" path="res://AllTextures/ForPlayer/Stats/Icons/iconFallenAngel.png" id="7_5q4tw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofj85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2fid"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jqfw")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+
+[node name="Stats&Buffs" type="HBoxContainer" parent="CanvasLayer/Margins"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Stats" type="VBoxContainer" parent="CanvasLayer/Margins/Stats&Buffs"]
+layout_mode = 2
+
+[node name="Icon&HpBar" type="HBoxContainer" parent="CanvasLayer/Margins/Stats&Buffs/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="IconPlayer" type="TextureRect" parent="CanvasLayer/Margins/Stats&Buffs/Stats/Icon&HpBar"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_5q4tw")
+
+[node name="HPBar" type="ProgressBar" parent="CanvasLayer/Margins/Stats&Buffs/Stats/Icon&HpBar"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxFlat_ofj85")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c2fid")
+value = 50.0
+show_percentage = false
+
+[node name="NumberHP" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/Icon&HpBar/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginsCoins&Keys" type="MarginContainer" parent="CanvasLayer/Margins/Stats&Buffs/Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 0
+
+[node name="Coins&Keys" type="GridContainer" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="SilverCoin" type="TextureRect" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_g5pj5")
+expand_mode = 2
+
+[node name="NumberSilverCoins" type="HBoxContainer" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberGlobalSilverCoins" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberSilverCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "999"
+vertical_alignment = 1
+
+[node name="NumberLocalSilverCoins" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberSilverCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "999"
+vertical_alignment = 1
+
+[node name="NumberAddLocalSilverCoins" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberSilverCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "+1"
+vertical_alignment = 1
+
+[node name="GoldCoin" type="TextureRect" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ed68f")
+expand_mode = 2
+
+[node name="NumberGoldCoins" type="HBoxContainer" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberGlobalGoldCoins" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberGoldCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "999"
+vertical_alignment = 1
+
+[node name="NumberLocalGoldCoins" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberGoldCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "999"
+vertical_alignment = 1
+
+[node name="NumberAddLocalGoldCoins" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberGoldCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "+1"
+vertical_alignment = 1
+
+[node name="Keys" type="TextureRect" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_aaiux")
+expand_mode = 2
+
+[node name="NumberKeys" type="HBoxContainer" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberGlobalKeys" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberKeys"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "999"
+vertical_alignment = 1
+
+[node name="NumberLocalKeys" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberKeys"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "999"
+vertical_alignment = 1
+
+[node name="NumberAddLocalKeys" type="Label" parent="CanvasLayer/Margins/Stats&Buffs/Stats/MarginsCoins&Keys/Coins&Keys/NumberKeys"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5v1je")
+theme_override_font_sizes/font_size = 25
+text = "+1"
+vertical_alignment = 1
+
+[node name="Buffs" type="GridContainer" parent="CanvasLayer/Margins/Stats&Buffs"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 4

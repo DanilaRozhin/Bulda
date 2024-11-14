@@ -1,0 +1,360 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqrx7raly40ow"]
+
+[ext_resource type="Texture2D" uid="uid://bcwhql20v774l" path="res://AllTextures/Tilesets/Backgrounds/Menu/Full.png" id="2_ldy84"]
+[ext_resource type="Texture2D" uid="uid://csgimfqde5r5c" path="res://AllTextures/Characters/Sellers/Selling/Coins/GoldCoin.png" id="3_gqulm"]
+[ext_resource type="Texture2D" uid="uid://0gqhiwrjmx8n" path="res://AllTextures/Characters/Sellers/Selling/Coins/SilverCoin.png" id="5_dgyte"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="5_y5o0i"]
+[ext_resource type="Texture2D" uid="uid://dea7med4jeid8" path="res://AllTextures/Characters/Sellers/Selling/Points/GreenPoint.png" id="6_y4fom"]
+[ext_resource type="Texture2D" uid="uid://bwla44uhjk5ah" path="res://AllTextures/Characters/Sellers/Selling/Points/BluePoint.png" id="7_4ub32"]
+[ext_resource type="Texture2D" uid="uid://botvs6lxfvaxb" path="res://AllTextures/ForPlayer/Stats/Coins/SilverCoin(60x60).png" id="8_dpukn"]
+[ext_resource type="Texture2D" uid="uid://c3rdc8hx4cme5" path="res://AllTextures/ForPlayer/Stats/Coins/GoldCoin(60x60).png" id="11_2hx1e"]
+[ext_resource type="Texture2D" uid="uid://cmo0uollxuv8w" path="res://AllTextures/Characters/Sellers/Selling/Points/GreenPoint(60x60).png" id="11_10nxb"]
+[ext_resource type="Script" path="res://ScenesANDScripts/Characters/Sellers/TradeScreen/TradeScreen.gd" id="12"]
+[ext_resource type="Texture2D" uid="uid://dguu2bd1cm4id" path="res://AllTextures/Characters/Sellers/Selling/AcceptTrade.png" id="12_5c3sb"]
+[ext_resource type="Texture2D" uid="uid://cxeft3cmdjuri" path="res://AllTextures/Characters/Sellers/Selling/Points/BluePoint(60x60).png" id="12_lvwjg"]
+[ext_resource type="AudioStream" uid="uid://bndbktnpcdbnv" path="res://MusicANDSounds/Sounds/Others/AcceptSkillTree.mp3" id="13_v1mx1"]
+
+[node name="TradeScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ldy84")
+expand_mode = 3
+
+[node name="Interface" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="UpperPanel" type="MarginContainer" parent="CanvasLayer/Interface"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+
+[node name="Coins&Points" type="GridContainer" parent="CanvasLayer/Interface/UpperPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="GoldCoins" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel/Coins&Points"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/GoldCoins"]
+layout_mode = 2
+texture = ExtResource("3_gqulm")
+
+[node name="NumberGoldCoins" type="Label" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/GoldCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="SilverCoins" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel/Coins&Points"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/SilverCoins"]
+layout_mode = 2
+texture = ExtResource("5_dgyte")
+
+[node name="NumberSilverCoins" type="Label" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/SilverCoins"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="GreenPoints" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel/Coins&Points"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/GreenPoints"]
+layout_mode = 2
+texture = ExtResource("6_y4fom")
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/GreenPoints"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="BluePoints" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel/Coins&Points"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/BluePoints"]
+layout_mode = 2
+texture = ExtResource("7_4ub32")
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/UpperPanel/Coins&Points/BluePoints"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="Information" type="HBoxContainer" parent="CanvasLayer/Interface/UpperPanel"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="CloseTradeScreen" type="Button" parent="CanvasLayer/Interface/UpperPanel/Information"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+
+[node name="Information" type="Label" parent="CanvasLayer/Interface/UpperPanel/Information"]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 30
+text = "У вас недостаточно зелёных очков"
+vertical_alignment = 1
+
+[node name="MarginsTrades" type="MarginContainer" parent="CanvasLayer/Interface"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="ScrollTrades" type="ScrollContainer" parent="CanvasLayer/Interface/MarginsTrades"]
+layout_mode = 2
+
+[node name="Trades" type="VBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="FirstTrade" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Trade" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SilverCoins" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberSilverCoins" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade/SilverCoins"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade/SilverCoins"]
+layout_mode = 2
+texture = ExtResource("8_dpukn")
+stretch_mode = 3
+
+[node name="For" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "-------->"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GreenPoints" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberGreenPoints" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade/GreenPoints"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/Trade/GreenPoints"]
+layout_mode = 2
+texture = ExtResource("11_10nxb")
+stretch_mode = 3
+
+[node name="AcceptFirstTrade" type="Button" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("12_5c3sb")
+flat = true
+icon_alignment = 1
+
+[node name="SecondTrade" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Trade" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="GoldCoins" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberGoldCoins" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade/GoldCoins"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade/GoldCoins"]
+layout_mode = 2
+texture = ExtResource("11_2hx1e")
+stretch_mode = 3
+
+[node name="For" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "-------->"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BluePoints" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberBluePoints" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade/BluePoints"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/Trade/BluePoints"]
+layout_mode = 2
+texture = ExtResource("12_lvwjg")
+stretch_mode = 3
+
+[node name="AcceptSecondTrade" type="Button" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("12_5c3sb")
+flat = true
+icon_alignment = 1
+
+[node name="ThirdTrade" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Trade" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="SilverCoins" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberSilverCoins" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade/SilverCoins"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade/SilverCoins"]
+layout_mode = 2
+texture = ExtResource("8_dpukn")
+stretch_mode = 3
+
+[node name="For" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "-------->"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldCoins" type="HBoxContainer" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="NumberGoldCoins" type="Label" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade/GoldCoins"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_y5o0i")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/Trade/GoldCoins"]
+layout_mode = 2
+texture = ExtResource("11_2hx1e")
+stretch_mode = 3
+
+[node name="AcceptThirdTrade" type="Button" parent="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("12_5c3sb")
+flat = true
+icon_alignment = 1
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_v1mx1")
+
+[connection signal="pressed" from="CanvasLayer/Interface/UpperPanel/Information/CloseTradeScreen" to="." method="_on_close_trade_screen_pressed"]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/FirstTrade/AcceptFirstTrade" to="." method="_on_accept_first_trade_pressed"]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/SecondTrade/AcceptSecondTrade" to="." method="_on_accept_second_trade_pressed"]
+[connection signal="pressed" from="CanvasLayer/Interface/MarginsTrades/ScrollTrades/Trades/ThirdTrade/AcceptThirdTrade" to="." method="_on_accept_third_trade_pressed"]

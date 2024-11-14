@@ -1,0 +1,318 @@
+[gd_scene load_steps=58 format=3 uid="uid://btpbwlrs486tf"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/Characters/Player/BasePlayer/BasePlayer.gd" id="1_b0834"]
+[ext_resource type="AudioStream" uid="uid://bgylohbpd783t" path="res://MusicANDSounds/Sounds/Player/DeathByFall.mp3" id="1_v0y1x"]
+[ext_resource type="AudioStream" uid="uid://3n080jjm433q" path="res://MusicANDSounds/Sounds/Player/DiePlayer.mp3" id="2_3g3nr"]
+[ext_resource type="AudioStream" uid="uid://do6fa7a38nfs7" path="res://MusicANDSounds/Sounds/Player/HurtPlayer.mp3" id="3_wgjbc"]
+[ext_resource type="AudioStream" uid="uid://w8h4r1m6xvrf" path="res://MusicANDSounds/Sounds/Objects/PickUPSword.mp3" id="6_h73u4"]
+[ext_resource type="AudioStream" uid="uid://clkssy7j6w02v" path="res://MusicANDSounds/Sounds/Objects/PickUPArmor.mp3" id="7_rqiej"]
+[ext_resource type="AudioStream" uid="uid://cvxeehxpl0l6l" path="res://MusicANDSounds/Sounds/Others/KnockDoor.mp3" id="8_s0w7c"]
+[ext_resource type="PackedScene" uid="uid://dgtnwwar4a0vg" path="res://ScenesANDScripts/ForPlayer/Stats/Stats.tscn" id="9_66fba"]
+[ext_resource type="PackedScene" uid="uid://bwwt4toaxfut" path="res://ScenesANDScripts/ForPlayer/Interface/Interface.tscn" id="10_72q2c"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ncpe"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r8c05"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8etmh"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ni5f"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kpiqk"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0s1tn"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_elipo"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7k2bq"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2hjdx"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_py6li"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oijn6"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2yfb0"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dlbkl"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pyugb"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_25djf"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5obmf"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n0lht"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s52ku"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x1f6k"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5kcl0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3g2c4"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k886p"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f6sjj"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82vsm"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mkp1h"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bjo6"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4hh1d"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p1lwp"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q7qq4"]
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eprke"]
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oqd3y"]
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2mju"]
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4hg2k"]
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2r7g5"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tplqi"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_htnoq"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t1vd8"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bl2r"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vnk6m"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_341d3"]
+advance_mode = 2
+advance_condition = &"hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xll5m"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvx5o"]
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j4h2i"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xpos7"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_elpoh"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hy22q"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s03er"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_idyqx"]
+states/End/position = Vector2(1117, -51)
+states/Start/position = Vector2(153, 132)
+states/attack/node = SubResource("AnimationNodeAnimation_0ncpe")
+states/attack/position = Vector2(612, -152)
+states/die/node = SubResource("AnimationNodeAnimation_r8c05")
+states/die/position = Vector2(838, -51)
+states/hurt/node = SubResource("AnimationNodeAnimation_8etmh")
+states/hurt/position = Vector2(638, 450)
+states/idle/node = SubResource("AnimationNodeAnimation_1ni5f")
+states/idle/position = Vector2(289, 132)
+states/jump/node = SubResource("AnimationNodeAnimation_kpiqk")
+states/jump/position = Vector2(350, -62)
+states/run/node = SubResource("AnimationNodeAnimation_0s1tn")
+states/run/position = Vector2(366, 353)
+states/walk/node = SubResource("AnimationNodeAnimation_elipo")
+states/walk/position = Vector2(885, 203)
+transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_7k2bq"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2hjdx"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_py6li"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_oijn6"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_2yfb0"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_dlbkl"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_pyugb"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_25djf"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_5obmf"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_n0lht"), "hurt", "attack", SubResource("AnimationNodeStateMachineTransition_s52ku"), "attack", "hurt", SubResource("AnimationNodeStateMachineTransition_x1f6k"), "die", "End", SubResource("AnimationNodeStateMachineTransition_5kcl0"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_3g2c4"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_k886p"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_f6sjj"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_82vsm"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_mkp1h"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_7bjo6"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_4hh1d"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_p1lwp"), "attack", "die", SubResource("AnimationNodeStateMachineTransition_q7qq4"), "hurt", "die", SubResource("AnimationNodeStateMachineTransition_eprke"), "walk", "die", SubResource("AnimationNodeStateMachineTransition_oqd3y"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_i2mju"), "run", "die", SubResource("AnimationNodeStateMachineTransition_4hg2k"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_2r7g5"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_tplqi"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_htnoq"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_t1vd8"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_0bl2r"), "jump", "attack", SubResource("AnimationNodeStateMachineTransition_vnk6m"), "jump", "hurt", SubResource("AnimationNodeStateMachineTransition_341d3"), "hurt", "jump", SubResource("AnimationNodeStateMachineTransition_xll5m"), "jump", "die", SubResource("AnimationNodeStateMachineTransition_cvx5o"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_j4h2i"), "attack", "jump", SubResource("AnimationNodeStateMachineTransition_xpos7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_elpoh"), "Start", "run", SubResource("AnimationNodeStateMachineTransition_hy22q"), "Start", "walk", SubResource("AnimationNodeStateMachineTransition_s03er")]
+graph_offset = Vector2(11, -227)
+
+[node name="BasePlayer" type="CharacterBody2D"]
+script = ExtResource("1_b0834")
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="TimerInformation" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Player" type="Node2D" parent="Sounds"]
+
+[node name="DeathByFall" type="AudioStreamPlayer" parent="Sounds/Player"]
+stream = ExtResource("1_v0y1x")
+
+[node name="Die" type="AudioStreamPlayer2D" parent="Sounds/Player"]
+stream = ExtResource("2_3g3nr")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds/Player"]
+stream = ExtResource("3_wgjbc")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds/Player"]
+
+[node name="WeaponSwing" type="AudioStreamPlayer2D" parent="Sounds/Player"]
+
+[node name="Objects" type="Node2D" parent="Sounds"]
+
+[node name="PickUpSword" type="AudioStreamPlayer2D" parent="Sounds/Objects"]
+stream = ExtResource("6_h73u4")
+
+[node name="PickUpArmor" type="AudioStreamPlayer2D" parent="Sounds/Objects"]
+stream = ExtResource("7_rqiej")
+
+[node name="KnockDoor" type="AudioStreamPlayer2D" parent="Sounds/Objects"]
+stream = ExtResource("8_s0w7c")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 1080
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="AreaAttack" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionAttack" type="CollisionShape2D" parent="AreaAttack"]
+position = Vector2(84.5, -28)
+
+[node name="Stats" parent="." instance=ExtResource("9_66fba")]
+
+[node name="Interface" parent="." instance=ExtResource("10_72q2c")]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+reset_on_save = false
+tree_root = SubResource("AnimationNodeStateMachine_idyqx")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/attack = false
+parameters/conditions/die = false
+parameters/conditions/hurt = false
+parameters/conditions/idle = false
+parameters/conditions/jump = false
+parameters/conditions/run = false
+parameters/conditions/walk = false
+
+[node name="Information" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = -191.0
+offset_right = 288.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Это похоже на ключ от какого-то сундука. Один из жителей деревни говорил, что в руинах можно найти сундуки с сокровищами"
+fit_content = true
+
+[connection signal="finished" from="Sounds/Player/DeathByFall" to="." method="_on_death_by_fall_finished"]
+[connection signal="finished" from="Sounds/Objects/KnockDoor" to="." method="_on_knock_door_finished"]
+[connection signal="body_entered" from="AreaAttack" to="." method="_on_area_attack_body_entered"]
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

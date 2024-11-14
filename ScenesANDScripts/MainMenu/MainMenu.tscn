@@ -1,0 +1,319 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgj4jh1ks53ng"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/MainMenu/MainMenu.gd" id="3"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="4_7mj3i"]
+[ext_resource type="AudioStream" uid="uid://g1kipgmmykoa" path="res://MusicANDSounds/Music/MainMenu/MainMenu.mp3" id="5_sa721"]
+[ext_resource type="Texture2D" uid="uid://cm7kufrfm5i1i" path="res://AllTextures/Tilesets/Backgrounds/Menu/Jugnle.png" id="7_pmhix"]
+[ext_resource type="Texture2D" uid="uid://c1n0b875o77tt" path="res://AllTextures/Tilesets/Backgrounds/Menu/Ground.png" id="8_vnfpu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/Margins"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Margins/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Играть"
+flat = true
+
+[node name="Settings" type="Button" parent="CanvasLayer/Margins/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Настройки"
+flat = true
+
+[node name="Information" type="Button" parent="CanvasLayer/Margins/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Информация"
+flat = true
+
+[node name="Exit" type="Button" parent="CanvasLayer/Margins/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Выйти"
+flat = true
+
+[node name="Levels" type="VBoxContainer" parent="CanvasLayer/Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Prologue" type="Button" parent="CanvasLayer/Margins/Levels"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Пролог"
+flat = true
+
+[node name="Level1" type="Button" parent="CanvasLayer/Margins/Levels"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Уровень 1"
+flat = true
+
+[node name="BackToMenu" type="Button" parent="CanvasLayer/Margins/Levels"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Вернуться в меню"
+flat = true
+
+[node name="Level1" type="VBoxContainer" parent="CanvasLayer/Margins"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Part1" type="Button" parent="CanvasLayer/Margins/Level1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Деревня"
+flat = true
+
+[node name="Part2" type="Button" parent="CanvasLayer/Margins/Level1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Лес"
+flat = true
+
+[node name="Part3" type="Button" parent="CanvasLayer/Margins/Level1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Руины"
+flat = true
+
+[node name="Part4" type="Button" parent="CanvasLayer/Margins/Level1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Деревня"
+flat = true
+
+[node name="FarmLevel" type="Button" parent="CanvasLayer/Margins/Level1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Фарм уровень"
+flat = true
+
+[node name="BackToLevels" type="Button" parent="CanvasLayer/Margins/Level1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Вернуться к выбору уровня"
+flat = true
+
+[node name="Information" type="VBoxContainer" parent="CanvasLayer/Margins"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonsControl" type="Button" parent="CanvasLayer/Margins/Information"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Управление"
+flat = true
+
+[node name="Developers" type="Button" parent="CanvasLayer/Margins/Information"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Разработчики"
+flat = true
+
+[node name="BackToMenu" type="Button" parent="CanvasLayer/Margins/Information"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_7mj3i")
+theme_override_font_sizes/font_size = 70
+text = "Назад"
+flat = true
+
+[node name="CameraMenu" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CameraMenu"]
+follow_viewport_scale = 20.0
+
+[node name="ParallaxJungle" type="ParallaxLayer" parent="CameraMenu/ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Jungle" type="Sprite2D" parent="CameraMenu/ParallaxBackground/ParallaxJungle"]
+texture = ExtResource("7_pmhix")
+centered = false
+
+[node name="ParallaxGround" type="ParallaxLayer" parent="CameraMenu/ParallaxBackground"]
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Ground" type="Sprite2D" parent="CameraMenu/ParallaxBackground/ParallaxGround"]
+texture = ExtResource("8_vnfpu")
+centered = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sa721")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/Margins/Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Menu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Menu/Information" to="." method="_on_information_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Menu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Levels/Prologue" to="." method="_on_prologue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Levels/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Levels/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Level1/Part1" to="." method="_on_part_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Level1/Part2" to="." method="_on_part_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Level1/Part3" to="." method="_on_part_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Level1/Part4" to="." method="_on_part_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Level1/FarmLevel" to="." method="_on_farm_level_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Level1/BackToLevels" to="." method="_on_back_to_levels_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Information/ButtonsControl" to="." method="_on_buttons_control_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Information/Developers" to="." method="_on_developers_pressed"]
+[connection signal="pressed" from="CanvasLayer/Margins/Information/BackToMenu" to="." method="_on_back_to_menu_pressed"]

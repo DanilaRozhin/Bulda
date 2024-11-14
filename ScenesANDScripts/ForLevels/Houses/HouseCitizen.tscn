@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://nctfakqrysr4"]
+
+[ext_resource type="Texture2D" uid="uid://yqh4vy66l2qe" path="res://AllTextures/Tilesets/Village/Houses/HouseCitizen.png" id="1_e1gnv"]
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Houses/House.gd" id="1_h82iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai0gw"]
+size = Vector2(52.5, 106)
+
+[node name="HouseCitizen" type="StaticBody2D"]
+script = ExtResource("1_h82iu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_e1gnv")
+
+[node name="Collision2" type="CollisionPolygon2D" parent="."]
+position = Vector2(82, -126)
+polygon = PackedVector2Array(-311, 79, -136, 8, 40, 78, 35, 88, -115.66, 27.2073, -136, 19, -306, 87)
+
+[node name="AreaKnockDoor" type="Area2D" parent="."]
+
+[node name="CollisionKnockDoor" type="CollisionShape2D" parent="AreaKnockDoor"]
+position = Vector2(-139.25, 40)
+shape = SubResource("RectangleShape2D_ai0gw")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-7.62939e-06, -2.5)
+scale = Vector2(23.4, 12.05)
+
+[connection signal="body_entered" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_entered"]
+[connection signal="body_exited" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

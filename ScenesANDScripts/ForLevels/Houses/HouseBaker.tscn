@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://vhi0wvhopu7h"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Houses/House.gd" id="1_3suut"]
+[ext_resource type="Texture2D" uid="uid://m6yswlsx0gut" path="res://AllTextures/Tilesets/Village/Houses/HouseBaker.png" id="1_f4ulb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41ukq"]
+size = Vector2(280, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmn50"]
+size = Vector2(113, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0jpt"]
+size = Vector2(51, 106)
+
+[node name="HouseBaker" type="StaticBody2D"]
+script = ExtResource("1_3suut")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_f4ulb")
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+position = Vector2(-176, -118)
+shape = SubResource("RectangleShape2D_41ukq")
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+position = Vector2(216.5, -43)
+shape = SubResource("RectangleShape2D_mmn50")
+
+[node name="Collision3" type="CollisionPolygon2D" parent="."]
+position = Vector2(122, -131)
+polygon = PackedVector2Array(-311, 79, -136, 8, 40, 78, 35, 88, -115.66, 27.2073, -136, 19, -306, 87)
+
+[node name="AreaKnockDoor" type="Area2D" parent="."]
+
+[node name="CollisionKnockDoor" type="CollisionShape2D" parent="AreaKnockDoor"]
+position = Vector2(-238.5, 51)
+shape = SubResource("RectangleShape2D_j0jpt")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(3.14713e-05, 1.28746e-05)
+scale = Vector2(37.5, 13.5)
+
+[connection signal="body_entered" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_entered"]
+[connection signal="body_exited" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

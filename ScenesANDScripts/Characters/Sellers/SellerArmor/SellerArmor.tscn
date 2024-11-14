@@ -1,0 +1,87 @@
+[gd_scene load_steps=14 format=3 uid="uid://dtdwhul14ktne"]
+
+[ext_resource type="Texture2D" uid="uid://bqhaq0h05nphr" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_000.png" id="1_q0hlk"]
+[ext_resource type="Script" path="res://ScenesANDScripts/Characters/Sellers/SellerArmor/SellerArmor.gd" id="1_r1qdq"]
+[ext_resource type="Texture2D" uid="uid://c14b3niicaoad" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_001.png" id="2_21ub3"]
+[ext_resource type="Texture2D" uid="uid://c1s2gdbbc8bil" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_002.png" id="3_oqljv"]
+[ext_resource type="Texture2D" uid="uid://c66v28nckw5f2" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_003.png" id="4_0mefk"]
+[ext_resource type="Texture2D" uid="uid://ckbm5uxctadwl" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_004.png" id="5_ghtew"]
+[ext_resource type="Texture2D" uid="uid://db8tsctyw365f" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_005.png" id="6_fmeim"]
+[ext_resource type="Texture2D" uid="uid://cf5rnkdjmr54o" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_006.png" id="7_fuc14"]
+[ext_resource type="Texture2D" uid="uid://djkvoiue8ggxe" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_007.png" id="8_0t386"]
+[ext_resource type="Texture2D" uid="uid://b2u4is7m2aybg" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_008.png" id="9_ckfmj"]
+[ext_resource type="Texture2D" uid="uid://bvsxxkhhr8v7p" path="res://AllTextures/Characters/Sellers/ArmorSeller/ArmorSeller_Sell_009.png" id="10_y7ndw"]
+[ext_resource type="PackedScene" uid="uid://bipqaals37n2a" path="res://ScenesANDScripts/Characters/NPC/Dialogue/Dialogue.tscn" id="12_hpids"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyors"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q0hlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_21ub3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oqljv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0mefk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ghtew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fmeim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fuc14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0t386")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ckfmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_y7ndw")
+}],
+"loop": true,
+"name": &"sell",
+"speed": 13.0
+}]
+
+[node name="SellerArmor" type="Node2D"]
+script = ExtResource("1_r1qdq")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_tyors")
+animation = &"sell"
+frame = 9
+frame_progress = 0.858138
+
+[node name="Information" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -233.0
+offset_top = -81.0
+offset_right = -77.0
+offset_bottom = 19.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Чё без брони ходишь? Лох"
+fit_content = true
+
+[node name="Dialogue" parent="." instance=ExtResource("12_hpids")]
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-27.5, 7.62939e-06)
+scale = Vector2(20.95, 12.4)
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

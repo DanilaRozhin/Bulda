@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cycsty3y82n7l"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/Levels/FarmLevels/BaseFarmLevel/BaseFarmLevel.gd" id="1_fetcc"]
+[ext_resource type="Texture2D" uid="uid://7c5m4338iqjy" path="res://AllTextures/ForLevels/FarmLevel/NextWave.png" id="2_4yudn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5abw6"]
+size = Vector2(142, 161)
+
+[node name="BaseFarmLevel" type="Node2D"]
+script = ExtResource("1_fetcc")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BordersForEnemies" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="CollectableObjects" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="AreaNextWave" type="Area2D" parent="."]
+
+[node name="CollisionNextWave" type="CollisionShape2D" parent="AreaNextWave"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5abw6")
+
+[node name="SpriteNextWave" type="Sprite2D" parent="AreaNextWave"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_4yudn")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+autoplay = true
+
+[connection signal="body_entered" from="AreaNextWave" to="." method="_on_area_next_wave_body_entered"]
+[connection signal="body_exited" from="AreaNextWave" to="." method="_on_area_next_wave_body_exited"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ko0hb5fosgp"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/Levels/Level1/Parts/BasePart/BasePart.gd" id="1_7q07c"]
+
+[node name="BasePart" type="Node2D"]
+script = ExtResource("1_7q07c")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BordersEnemies" type="Node2D" parent="."]
+
+[node name="CollectableObjects" type="Node2D" parent="."]
+
+[node name="LootBoxes" type="Node2D" parent="."]
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Ladders" type="Node2D" parent="."]
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="Houses" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+autoplay = true
+
+[node name="Loop" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+
+[connection signal="finished" from="Start" to="." method="_on_start_finished"]

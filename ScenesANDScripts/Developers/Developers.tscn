@@ -1,0 +1,251 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0v7m41iri1f"]
+
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="1_kdeah"]
+[ext_resource type="Script" path="res://ScenesANDScripts/Developers/Developers.gd" id="1_ytrta"]
+[ext_resource type="Texture2D" uid="uid://dox1t253wsjwl" path="res://AllTextures/Developers/Unknownboy.png" id="2_tyqg6"]
+[ext_resource type="Texture2D" uid="uid://b4f02jj5b0h85" path="res://AllTextures/Developers/Montagem.png" id="3_k5oso"]
+[ext_resource type="Texture2D" uid="uid://cq8si4bc8mdqr" path="res://AllTextures/Developers/GodotEngine.png" id="3_x0iuk"]
+[ext_resource type="Texture2D" uid="uid://b8ibodo1bm7bw" path="res://AllTextures/Developers/BecTHuk_SMEPTu.png" id="3_xymho"]
+[ext_resource type="Texture2D" uid="uid://dt70rdpqmmwcc" path="res://AllTextures/Developers/Aic-Aic.png" id="4_seqdb"]
+[ext_resource type="Texture2D" uid="uid://dlwc75vjq7vix" path="res://AllTextures/Developers/MAX.png" id="6_epe8q"]
+[ext_resource type="Texture2D" uid="uid://bxv3jg6si7mc6" path="res://AllTextures/Developers/wriswery.png" id="9_vr7y5"]
+
+[node name="Developers" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ytrta")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Developers" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginsUpperPanel" type="MarginContainer" parent="CanvasLayer/Developers"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="UpperPanel" type="VBoxContainer" parent="CanvasLayer/Developers/MarginsUpperPanel"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="CanvasLayer/Developers/MarginsUpperPanel/UpperPanel"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 60
+text = "X"
+flat = true
+
+[node name="MarginsListDevelopers" type="MarginContainer" parent="CanvasLayer/Developers"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollListDevelopers" type="ScrollContainer" parent="CanvasLayer/Developers/MarginsListDevelopers"]
+clip_contents = false
+layout_mode = 2
+
+[node name="ListDevelopers" type="VBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 40
+
+[node name="HeaderDevelopers" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 10.25
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 50
+text = "Разработчики"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BecTHuk_SMEPTu" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/BecTHuk_SMEPTu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_xymho")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/BecTHuk_SMEPTu"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "BecTHuk_SMEPTu: автор идеи, кодер, дизайнер уровней"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Aic-Aic" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Aic-Aic"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_seqdb")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Aic-Aic"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "Aic-Aic: сценарист, консультант процесса разработки"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Montagem" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Montagem"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_k5oso")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Montagem"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "montagem: звукорежиссёр, художник"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GodotEngine" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/GodotEngine"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_x0iuk")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/GodotEngine"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "Godot Engine v4.0.3: игровой движок"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HeaderTesters" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 50
+text = "Тестировщики"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Testers" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers"]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="MAX" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers/MAX"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_epe8q")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers/MAX"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "ⓍMAXⓍ ♡"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Unknownboy" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers/Unknownboy"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_tyqg6")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers/Unknownboy"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "Unknownboy"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wriswery" type="HBoxContainer" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers/Wriswery"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_vr7y5")
+
+[node name="Description" type="Label" parent="CanvasLayer/Developers/MarginsListDevelopers/ScrollListDevelopers/ListDevelopers/Testers/Wriswery"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_kdeah")
+theme_override_font_sizes/font_size = 40
+text = "wriswery"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Developers/MarginsUpperPanel/UpperPanel/Close" to="." method="_on_close_pressed"]

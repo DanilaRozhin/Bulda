@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtw3h7hb1an2h"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Items/Apple/Apple.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b0s5vdqe10v7x" path="res://AllTextures/ForLevels/Items/Apple/Apple.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://4llgu2idsvhx" path="res://MusicANDSounds/Sounds/Objects/Apple.mp3" id="3_hv5rp"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 23.0
+
+[node name="Apple" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2")
+
+[node name="AreaPickUP" type="Area2D" parent="."]
+
+[node name="CollisionPickUP" type="CollisionShape2D" parent="AreaPickUP"]
+position = Vector2(-1, 3)
+shape = SubResource("1")
+
+[node name="PickUP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hv5rp")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(1.43051e-06, 0.499998)
+scale = Vector2(2.4, 2.55)
+
+[connection signal="body_entered" from="AreaPickUP" to="." method="_on_area_pick_up_body_entered"]
+[connection signal="finished" from="PickUP" to="." method="_on_pick_up_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

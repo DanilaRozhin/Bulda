@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://w7gbbb21w4yj"]
+
+[ext_resource type="Texture2D" uid="uid://bg6edsnuxjh3h" path="res://AllTextures/ForPlayer/Interface/BackgroundInformation.png" id="1_q7twv"]
+[ext_resource type="Script" path="res://ScenesANDScripts/Levels/Epilogue/Epilogue.gd" id="1_th7yl"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="2_hd3cn"]
+[ext_resource type="AudioStream" uid="uid://demsf0ea44i7t" path="res://MusicANDSounds/Sounds/Others/TextPrinting.mp3" id="4_4id1u"]
+
+[node name="Epilogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_th7yl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EpilogueBox" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_q7twv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Margins" type="MarginContainer" parent="CanvasLayer/EpilogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Epilogue" type="VBoxContainer" parent="CanvasLayer/EpilogueBox/Margins"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="Label" parent="CanvasLayer/EpilogueBox/Margins/Epilogue"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hd3cn")
+theme_override_font_sizes/font_size = 50
+text = "Заголовок"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/EpilogueBox/Margins/Epilogue"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_hd3cn")
+theme_override_font_sizes/normal_font_size = 40
+text = "Текст"
+scroll_following = true
+
+[node name="Next" type="Button" parent="CanvasLayer/EpilogueBox/Margins/Epilogue"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hd3cn")
+theme_override_font_sizes/font_size = 50
+text = "Далее"
+flat = true
+
+[node name="TextPrinting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4id1u")
+
+[connection signal="pressed" from="CanvasLayer/EpilogueBox/Margins/Epilogue/Next" to="." method="_on_next_pressed"]

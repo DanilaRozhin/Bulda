@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://v01jikp6rbe2"]
+
+[ext_resource type="Texture2D" uid="uid://coheu6toq06b" path="res://AllTextures/ForLevels/GameObjects/Chest/Chest_01_Locked.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://chyum1hf8uvg1" path="res://AllTextures/ForLevels/GameObjects/Chest/Chest_01_Unlocked.png" id="2"]
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/GameObjects/Chest/Chest.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://ygxgtusi0uje" path="res://MusicANDSounds/Sounds/Objects/OpenChest.mp3" id="4_grads"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": false,
+"name": &"open",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(79, 63)
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("3")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("1")
+animation = &"open"
+
+[node name="AreaOpen" type="Area2D" parent="."]
+
+[node name="CollisionOpen" type="CollisionShape2D" parent="AreaOpen"]
+position = Vector2(-4.5, 11.5)
+shape = SubResource("2")
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_grads")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4.5, 11.5)
+scale = Vector2(3.95, 3.15)
+
+[connection signal="body_entered" from="AreaOpen" to="." method="_on_area_open_body_entered"]
+[connection signal="finished" from="Open" to="." method="_on_open_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

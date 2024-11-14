@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://2uwfu7a1y3ms"]
+
+[ext_resource type="PackedScene" uid="uid://cmrdbrf0c07bj" path="res://ScenesANDScripts/Levels/Level1/Parts/BasePart/BaseLoadingScreen.tscn" id="1_71l8k"]
+
+[node name="LoadingScreenPart3" instance=ExtResource("1_71l8k")]
+pathLevel = "res://ScenesANDScripts/Levels/Level1/Parts/Part3/Part3.tscn"
+numberLevel = 1
+numberPart = 3
+
+[node name="NamePart" parent="Margins" index="0"]
+text = "Руины"

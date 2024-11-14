@@ -1,0 +1,183 @@
+[gd_scene load_steps=5 format=3 uid="uid://c15t75benda3r"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/Settings/Settings.gd" id="1_tbxgu"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="3_p1x72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgv60"]
+bg_color = Color(0.388235, 0.560784, 0.494118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebk8g"]
+bg_color = Color(0.47451, 0.937255, 0.470588, 1)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tbxgu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Settings" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginsUpperPanel" type="MarginContainer" parent="CanvasLayer/Settings"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="UpperPanel" type="VBoxContainer" parent="CanvasLayer/Settings/MarginsUpperPanel"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="CanvasLayer/Settings/MarginsUpperPanel/UpperPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 60
+text = "X"
+flat = true
+
+[node name="Settings" type="Label" parent="CanvasLayer/Settings/MarginsUpperPanel/UpperPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 60
+text = "Настройки
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginsMusic&Sounds" type="MarginContainer" parent="CanvasLayer/Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Music&Sounds" type="VBoxContainer" parent="CanvasLayer/Settings/MarginsMusic&Sounds"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Music" type="HBoxContainer" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HeaderMusic" type="Label" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Music"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 50
+text = "Музыка:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinusMusic" type="Button" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Music"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.862745, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 70
+text = "-"
+flat = true
+
+[node name="MusicBar" type="ProgressBar" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Music"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxFlat_rgv60")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ebk8g")
+min_value = -60.0
+max_value = 0.0
+step = 2.0
+value = -30.0
+
+[node name="PlusMusic" type="Button" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Music"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 70
+text = "+"
+flat = true
+
+[node name="Sounds" type="HBoxContainer" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HeaderSounds" type="Label" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Sounds"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 50
+text = "Звуки:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinusSounds" type="Button" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Sounds"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.862745, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 70
+text = "-"
+flat = true
+
+[node name="SoundsBar" type="ProgressBar" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Sounds"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxFlat_rgv60")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ebk8g")
+min_value = -60.0
+max_value = 0.0
+step = 2.0
+value = -30.0
+
+[node name="PlusSounds" type="Button" parent="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Sounds"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_p1x72")
+theme_override_font_sizes/font_size = 70
+text = "+"
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/Settings/MarginsUpperPanel/UpperPanel/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Music/MinusMusic" to="." method="_on_minus_music_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Music/PlusMusic" to="." method="_on_plus_music_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Sounds/MinusSounds" to="." method="_on_minus_sounds_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/MarginsMusic&Sounds/Music&Sounds/Sounds/PlusSounds" to="." method="_on_plus_sounds_pressed"]

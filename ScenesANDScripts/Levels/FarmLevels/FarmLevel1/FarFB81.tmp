@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://6ybjobsoamoo"]
+
+[ext_resource type="PackedScene" uid="uid://cycsty3y82n7l" path="res://ScenesANDScripts/Levels/FarmLevels/BaseFarmLevel/BaseFarmLevel.tscn" id="1_bucyb"]
+[ext_resource type="Script" path="res://ScenesANDScripts/Levels/FarmLevels/FarmLevel1/FarmLevel1.gd" id="2_qqt35"]
+[ext_resource type="Texture2D" uid="uid://fqm6jefba7dw" path="res://AllTextures/Tilesets/Backgrounds/Ruins/Sky.png" id="3_bfmu3"]
+[ext_resource type="Texture2D" uid="uid://ckbq4q8yr3nnd" path="res://AllTextures/Tilesets/Backgrounds/Ruins/Clouds.png" id="4_boljc"]
+[ext_resource type="Texture2D" uid="uid://b6kp5jojli62" path="res://AllTextures/Tilesets/Backgrounds/Ruins/BGRocks.png" id="5_tdwla"]
+[ext_resource type="Texture2D" uid="uid://klgkh1d0xdxl" path="res://AllTextures/Tilesets/Backgrounds/Ruins/FGRocks.png" id="6_ffxdm"]
+[ext_resource type="PackedScene" uid="uid://cchrtb2bnhcst" path="res://ScenesANDScripts/Characters/Enemies/Border/BorderForEnemy.tscn" id="7_fc8em"]
+[ext_resource type="TileSet" uid="uid://8qqmgfags66d" path="res://ScenesANDScripts/Tileset/Village/PlatformerVillage.tres" id="7_fna0u"]
+[ext_resource type="TileSet" uid="uid://dsb416ttut425" path="res://ScenesANDScripts/Tileset/Village/EnvironmentVillage.tres" id="10_tvdlr"]
+[ext_resource type="PackedScene" uid="uid://mdsq6lndoqpf" path="res://ScenesANDScripts/Characters/Player/Knight/PlayerKnight.tscn" id="10_vtvg7"]
+[ext_resource type="AudioStream" uid="uid://dx0slpvmbilq" path="res://MusicANDSounds/Music/FarmLevel/FarmLevel1.mp3" id="11_fdqsy"]
+
+[node name="FarmLevel1" instance=ExtResource("1_bucyb")]
+script = ExtResource("2_qqt35")
+cameraLimit = 2100
+
+[node name="ParallaxBackground" parent="." index="0"]
+scroll_offset = Vector2(-80.5054, -465.347)
+
+[node name="ParallaxSky" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/ParallaxSky" index="0"]
+texture = ExtResource("3_bfmu3")
+centered = false
+
+[node name="ParallaxClouds" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxClouds" index="0"]
+texture = ExtResource("4_boljc")
+centered = false
+
+[node name="ParallaxBGRocks" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="BGRocks" type="Sprite2D" parent="ParallaxBackground/ParallaxBGRocks" index="0"]
+texture = ExtResource("5_tdwla")
+centered = false
+
+[node name="ParallaxFGRocks" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+motion_mirroring = Vector2(3840, 0)
+
+[node name="FGRocks" type="Sprite2D" parent="ParallaxBackground/ParallaxFGRocks" index="0"]
+texture = ExtResource("6_ffxdm")
+centered = false
+
+[node name="BorderForEnemy" parent="BordersForEnemies" index="0" instance=ExtResource("7_fc8em")]
+position = Vector2(1096, 60)
+
+[node name="BorderForEnemy2" parent="BordersForEnemies" index="1" instance=ExtResource("7_fc8em")]
+position = Vector2(436, 59)
+
+[node name="BorderForEnemy3" parent="BordersForEnemies" index="2" instance=ExtResource("7_fc8em")]
+position = Vector2(759, 316)
+
+[node name="BorderForEnemy4" parent="BordersForEnemies" index="3" instance=ExtResource("7_fc8em")]
+position = Vector2(1223, 316)
+
+[node name="BorderForEnemy5" parent="BordersForEnemies" index="4" instance=ExtResource("7_fc8em")]
+position = Vector2(246, 572)
+
+[node name="BorderForEnemy6" parent="BordersForEnemies" index="5" instance=ExtResource("7_fc8em")]
+position = Vector2(833, 570)
+
+[node name="BorderForEnemy7" parent="BordersForEnemies" index="6" instance=ExtResource("7_fc8em")]
+position = Vector2(1800, 121)
+
+[node name="BorderForEnemy8" parent="BordersForEnemies" index="7" instance=ExtResource("7_fc8em")]
+position = Vector2(1335, 124)
+
+[node name="BorderForEnemy9" parent="BordersForEnemies" index="8" instance=ExtResource("7_fc8em")]
+position = Vector2(2057, 376)
+
+[node name="BorderForEnemy10" parent="BordersForEnemies" index="9" instance=ExtResource("7_fc8em")]
+position = Vector2(1591, 380)
+
+[node name="BorderForEnemy11" parent="BordersForEnemies" index="10" instance=ExtResource("7_fc8em")]
+position = Vector2(2120, 826)
+
+[node name="BorderForEnemy12" parent="BordersForEnemies" index="11" instance=ExtResource("7_fc8em")]
+position = Vector2(1363, 826)
+
+[node name="BorderForEnemy13" parent="BordersForEnemies" index="12" instance=ExtResource("7_fc8em")]
+position = Vector2(795, 826)
+
+[node name="Marker1" type="Marker2D" parent="Markers" index="0"]
+position = Vector2(550, 575)
+
+[node name="Marker2" type="Marker2D" parent="Markers" index="1"]
+position = Vector2(1000, 326)
+
+[node name="Marker3" type="Marker2D" parent="Markers" index="2"]
+position = Vector2(1600, 125)
+
+[node name="Marker4" type="Marker2D" parent="Markers" index="3"]
+position = Vector2(800, 60)
+
+[node name="Marker5" type="Marker2D" parent="Markers" index="4"]
+position = Vector2(1800, 370)
+
+[node name="Marker6" type="Marker2D" parent="Markers" index="5"]
+position = Vector2(1800, 825)
+
+[node name="Marker7" type="Marker2D" parent="Markers" index="6"]
+position = Vector2(1000, 825)
+
+[node name="Platformer" type="TileMap" parent="Tiles" index="0"]
+tile_set = ExtResource("7_fna0u")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(983039, 1, 1, 1048575, 1, 2, 1114111, 1, 2, 917504, 65537, 2, 917505, 131073, 2, 917506, 131073, 2, 917507, 131073, 2, 917508, 131073, 2, 917509, 131073, 2, 917510, 131073, 2, 917511, 196609, 2, 917512, 131073, 0, 917513, 131073, 0, 917514, 131073, 0, 917515, 65537, 2, 917516, 131073, 2, 917517, 131073, 2, 917518, 131073, 2, 917519, 131073, 2, 917520, 196609, 2, 917521, 65537, 2, 917522, 131073, 2, 917523, 131073, 2, 917524, 131073, 2, 917525, 196609, 2, 917526, 131073, 0, 917527, 131073, 0, 917528, 131073, 0, 917529, 65537, 2, 983065, 131073, 1, 1048601, 131073, 1, 983040, 131073, 1, 1048576, 131073, 1, 1048577, 131073, 1, 983041, 131073, 1, 983042, 131073, 1, 983043, 131073, 1, 1048579, 131073, 1, 1048578, 131073, 1, 983044, 131073, 1, 983045, 131073, 1, 983046, 131073, 1, 983047, 131073, 1, 983048, 131073, 1, 983049, 131073, 1, 983050, 131073, 1, 983051, 131073, 1, 983052, 131073, 1, 983053, 131073, 1, 1048589, 131073, 1, 1048588, 131073, 1, 1048587, 131073, 1, 1048586, 131073, 1, 1048585, 131073, 1, 1048584, 131073, 1, 1048583, 131073, 1, 1048582, 131073, 1, 1048581, 131073, 1, 1048580, 131073, 1, 983054, 131073, 1, 983055, 131073, 1, 983056, 131073, 1, 983057, 131073, 1, 983058, 131073, 1, 983059, 131073, 1, 983060, 131073, 1, 983061, 131073, 1, 983062, 131073, 1, 983063, 131073, 1, 983064, 131073, 1, 1048600, 131073, 1, 1048599, 131073, 1, 1048598, 131073, 1, 1048597, 131073, 1, 1048596, 131073, 1, 1048595, 131073, 1, 1048594, 131073, 1, 1048593, 131073, 1, 1048592, 131073, 1, 1048591, 131073, 1, 1048590, 131073, 1, 655364, 1, 1, 655365, 65537, 2, 655366, 131073, 2, 655367, 131073, 2, 655368, 131073, 2, 655369, 196609, 2, 655370, 131073, 0, 655371, 131073, 0, 655372, 262145, 1, 393217, 1, 1, 393218, 65537, 2, 393219, 131073, 2, 393220, 131073, 2, 393221, 196609, 2, 393222, 262145, 1, 196629, 1, 1, 196630, 131073, 0, 196631, 131073, 0, 196632, 131073, 0, 655378, 1, 1, 655379, 131073, 0, 655380, 131073, 0, 655381, 131073, 0, 655382, 262145, 1, 196633, 131073, 0, 196634, 131073, 0, 196635, 262145, 1, 917530, 131073, 2, 917531, 131073, 2, 917532, 131073, 2, 917533, 131073, 2, 917534, 131073, 2, 917535, 196609, 2, 917536, 262145, 1, 983072, 262145, 2, 1048608, 262145, 2, 983071, 131073, 1, 983070, 131073, 1, 983069, 131073, 1, 983068, 131073, 1, 983067, 131073, 1, 983066, 131073, 1, 1048602, 131073, 1, 1048603, 131073, 1, 1048604, 131073, 1, 1048605, 131073, 1, 1048606, 131073, 1, 1048607, 131073, 1, 393228, 1, 1, 393229, 65537, 2, 393230, 131073, 2, 393231, 131073, 2, 393232, 131073, 2, 393233, 196609, 2, 393234, 262145, 1, 131079, 1, 1, 131080, 65537, 2, 131081, 131073, 2, 131082, 131073, 2, 131083, 131073, 2, 131084, 131073, 2, 131085, 131073, 2, 131086, 131073, 2, 131087, 196609, 2, 131088, 262145, 1, 458777, 1, 1, 458778, 65537, 2, 458779, 131073, 2, 458780, 131073, 2, 458781, 131073, 2, 458782, 196609, 2, 458783, 262145, 1)
+
+[node name="Environment" type="TileMap" parent="Tiles" index="1"]
+tile_set = ExtResource("10_tvdlr")
+format = 2
+
+[node name="CollisionNextWave" parent="AreaNextWave" index="0"]
+position = Vector2(138.5, 303.5)
+
+[node name="SpriteNextWave" parent="AreaNextWave" index="1"]
+position = Vector2(139, 304)
+
+[node name="PlayerKnight" parent="." index="7" instance=ExtResource("10_vtvg7")]
+position = Vector2(129, 827)
+
+[node name="Music" parent="." index="8"]
+stream = ExtResource("11_fdqsy")

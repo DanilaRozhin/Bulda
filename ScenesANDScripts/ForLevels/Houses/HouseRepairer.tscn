@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cns00ckclhpb"]
+
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/Houses/House.gd" id="1_68ied"]
+[ext_resource type="Texture2D" uid="uid://dub4n75e18qdx" path="res://AllTextures/Tilesets/Village/Houses/HouseRepairer.png" id="1_y478q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccdvc"]
+size = Vector2(277, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g47vd"]
+size = Vector2(110, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eorh"]
+size = Vector2(52, 102)
+
+[node name="HouseRepairer" type="StaticBody2D"]
+script = ExtResource("1_68ied")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_y478q")
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+position = Vector2(-136.5, -120)
+shape = SubResource("RectangleShape2D_ccdvc")
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+position = Vector2(260, -43)
+shape = SubResource("RectangleShape2D_g47vd")
+
+[node name="Collision3" type="CollisionPolygon2D" parent="."]
+position = Vector2(170, -135)
+polygon = PackedVector2Array(-311, 79, -136, 8, 40, 78, 35, 88, -115.66, 27.2073, -136, 19, -306, 87)
+
+[node name="AreaKnockDoor" type="Area2D" parent="."]
+
+[node name="CollisionKnockDoor" type="CollisionShape2D" parent="AreaKnockDoor"]
+position = Vector2(-195, 50)
+shape = SubResource("RectangleShape2D_0eorh")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(36.5, 13.5)
+
+[connection signal="body_entered" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_entered"]
+[connection signal="body_exited" from="AreaKnockDoor" to="." method="_on_area_knock_door_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://dinxh86w0g83f"]
+
+[ext_resource type="Texture2D" uid="uid://d0esdi4y4jmwc" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox006.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dlsswbxtpi5ot" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox008.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bn4qnxvvo6j4g" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox005.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://qb5nkiiv4lh4" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox004.jpg" id="4"]
+[ext_resource type="Texture2D" uid="uid://d361cnx6ah8a4" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox009.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cg0jnnqgcv8bl" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox001.jpg" id="6"]
+[ext_resource type="Texture2D" uid="uid://dxldnw3heqmsv" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox002.jpg" id="7"]
+[ext_resource type="Texture2D" uid="uid://cc14thy60gg37" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox003.jpg" id="8"]
+[ext_resource type="Texture2D" uid="uid://0xllkwrq0ckl" path="res://AllTextures/ForLevels/GameObjects/LootBox/Lootbox007.png" id="9"]
+[ext_resource type="Script" path="res://ScenesANDScripts/ForLevels/GameObjects/LootBox/LootBox.gd" id="10"]
+[ext_resource type="AudioStream" uid="uid://mswgxeu3jnqt" path="res://MusicANDSounds/Sounds/Objects/DestructionBox.mp3" id="11_wbw6u"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": false,
+"name": &"destruction",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(60, 60)
+
+[node name="LootBox" type="StaticBody2D"]
+script = ExtResource("10")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("1")
+animation = &"destruction"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("2")
+
+[node name="Destruction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wbw6u")
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(3, 3)
+
+[connection signal="finished" from="Destruction" to="." method="_on_destruction_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler" to="." method="_on_visible_on_screen_enabler_screen_exited"]

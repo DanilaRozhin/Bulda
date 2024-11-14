@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdpvsnpl60tbe"]
+
+[ext_resource type="PackedScene" uid="uid://cmrdbrf0c07bj" path="res://ScenesANDScripts/Levels/Level1/Parts/BasePart/BaseLoadingScreen.tscn" id="1_r6kyd"]
+
+[node name="LoadingScreenPart1" instance=ExtResource("1_r6kyd")]
+pathLevel = "res://ScenesANDScripts/Levels/Level1/Parts/Part1/Part1.tscn"
+numberLevel = 1
+numberPart = 1
+
+[node name="NamePart" parent="Margins" index="0"]
+text = "Деревня"
